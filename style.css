@@ -1,0 +1,296 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f1fb;
+  color: #292344;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* AUTHENTICATION */
+
+#authScreen {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.auth-card {
+  background: white;
+  padding: 35px;
+  border-radius: 25px;
+  width: 100%;
+  max-width: 430px;
+  text-align: center;
+  box-shadow: 0 10px 40px #00000010;
+}
+
+.auth-card h1 {
+  color: #7256ce;
+  font-size: 32px;
+}
+
+.auth-card input,
+.auth-card select {
+  width: 100%;
+  padding: 16px;
+  margin: 10px 0;
+  border: 1px solid #ddd5ef;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+#authButton {
+  width: 100%;
+  margin-top: 15px;
+}
+
+#switchAuth {
+  color: #7256ce;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#authMessage {
+  color: #7256ce;
+  font-weight: bold;
+}
+
+/* APPLICATION */
+
+#appShell {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+.hero {
+  background: linear-gradient(120deg, #6550c9, #a078e6);
+  color: white;
+  padding: 35px;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: 36px;
+}
+
+/* BUTTONS */
+
+button {
+  background: #6953ca;
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  margin: 5px;
+}
+
+button:hover {
+  background: #503ba9;
+}
+
+.navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.navigation button {
+  flex: 1 1 120px;
+  background: white;
+  color: #6953ca;
+  border: 1px solid #ddd5ef;
+}
+
+.navigation button.active {
+  background: #6953ca;
+  color: white;
+}
+
+/* PAGES */
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+/* CARDS */
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  margin: 20px 0;
+  box-shadow: 0 5px 20px #30205b0b;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.stats h1 {
+  color: #755ed0;
+  font-size: 36px;
+}
+
+/* INPUTS */
+
+input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd5ef;
+  border-radius: 10px;
+  margin: 12px 0;
+  font-size: 16px;
+}
+
+/* PROGRESS */
+
+.progress {
+  background: #eee9f8;
+  height: 14px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#progressBar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #7155cc, #ad82e8);
+  transition: 0.4s;
+}
+
+/* TASKS */
+
+.task {
+  background: white;
+  padding: 18px;
+  margin: 12px 0;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.task.done span {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+/* QUIZ */
+
+.option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: #eee9f8;
+  color: #292344;
+  margin: 10px 0;
+}
+
+.option:disabled {
+  opacity: 0.6;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+}
+
+footer {
+  text-align: center;
+  color: #999;
+  padding: 35px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+  #appShell {
+    padding: 12px;
+  }
+
+  .hero {
+    padding: 25px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .task {
+    flex-wrap: wrap;
+  }
+
+}
+
+/* MODULES */
+textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd5ef;
+  border-radius: 10px;
+  margin: 12px 0;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+.flash {
+  cursor: pointer;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.bar-row span {
+  width: 80px;
+  font-size: 14px;
+}
+
+.bar-track {
+  flex: 1;
+  background: #eee9f8;
+  height: 14px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #7155cc, #ad82e8);
+}
+
+select {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd5ef;
+  border-radius: 10px;
+  margin: 12px 0;
+  font-size: 16px;
+  background: white;
+}
