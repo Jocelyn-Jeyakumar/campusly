@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CAMPUSLY - Your student success companion</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="authScreen">
+  <div class="auth-card">
+
+    <h1>🎓 CAMPUSLY</h1>
+    <p>Your student success companion</p>
+
+    <h2 id="authTitle">Welcome Back!</h2>
+
+    <form id="authForm">
+
+      <div id="registerFields" hidden>
+        <input id="studentName" placeholder="Full Name">
+
+        <input id="department" placeholder="Department">
+
+        <select id="year">
+          <option value="">Select Academic Year</option>
+          <option>1st Year</option>
+          <option>2nd Year</option>
+          <option>3rd Year</option>
+          <option>4th Year</option>
+        </select>
+      </div>
+
+      <input id="email" type="email"
+        placeholder="College Email" required>
+
+      <input id="password" type="password"
+        placeholder="Password" required>
+
+      <button type="submit" id="authButton">
+        Login
+      </button>
+
+    </form>
+
+    <p id="authMessage"></p>
+
+    <p id="switchText">
+      New student?
+      <span id="switchAuth">Create Account</span>
+    </p>
+
+  </div>
+</div>
+
+
+<div id="appShell" hidden>
+
+  <header class="hero">
+    <h1>🎓 CAMPUSLY</h1>
+    <p>Your student success companion</p>
+    <h3 id="welcome"></h3>
+    <p id="studentInfo"></p>
+    <button id="logoutBtn">Logout</button>
+  </header>
+
+  <nav class="navigation">
+    <button data-page="dashboard">Dashboard</button>
+    <button data-page="tasks">My Tasks</button>
+    <button data-page="quiz">Placement Quiz</button>
+    <button data-page="eligibility">Eligibility</button>
+    <button data-page="marks">My Marks</button>
+    <button data-page="buddy">Study Buddy</button>
+    <button data-page="placement">Placement</button>
+    <button data-page="planner">Planner</button>
+    <button data-page="analytics">Analytics</button>
+  </nav>
+
+  <main>
+
+    <section id="dashboard" class="page active">
+
+      <h2>Student Dashboard 🚀</h2>
+
+      <div class="stats">
+
+        <div class="card">
+          <h3>Current CGPA</h3>
+          <h1 id="cgpa">0.00</h1>
+        </div>
+
+        <div class="card">
+          <h3>Tasks Completed</h3>
+          <h1 id="completed">0</h1>
+        </div>
+
+        <div class="card">
+          <h3>Placement Readiness</h3>
+          <h1 id="readiness">0%</h1>
+        </div>
+
+      </div>
+
+      <div class="card">
+        <h2>Career Progress</h2>
+        <div class="progress">
+          <div id="progressBar"></div>
+        </div>
+        <p id="progressText">Keep learning!</p>
+      </div>
+      <div class="card">
+        <h2>⏰ Upcoming Deadlines</h2>
+        <div id="deadlines">Nothing due 🎉</div>
+      </div>
+
+    </section>
+
+
+    <section id="tasks" class="page">
+
+      <h2>📋 My Tasks</h2>
+
+      <form id="taskForm">
+        <input id="taskInput"
+          placeholder="Enter a new task..." required>
+
+        <button type="submit">+ Add Task</button>
+      </form>
+
+      <div id="taskList"></div>
+
+    </section>
+
+
+    <section id="quiz" class="page">
+
+      <h2>🧠 Placement Preparation Quiz</h2>
+
+      <div class="card">
+
+        <h3 id="question">
+          Ready to test your knowledge?
+        </h3>
+
+        <div id="options"></div>
+
+        <p id="quizResult"></p>
+
+        <button id="startQuizBtn">
+          Start Quiz
+        </button>
+
+        <button id="nextQuestionBtn" hidden>
+          Next Question
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <section id="eligibility" class="page">
+
+      <h2>🎯 Placement Eligibility Checker</h2>
+
+      <div class="card">
+
+        <label>Enter CGPA</label>
+
+        <input type="number" id="eligCGPA"
+          min="0" max="10" step="0.01"
+          placeholder="Example: 8.5">
+
+        <label>Active Backlogs</label>
+
+        <input type="number" id="backlogs"
+          min="0" step="1"
+          placeholder="Example: 0">
+
+        <button id="checkEligibilityBtn">
+          Check Eligibility
+        </button>
+
+        <h3 id="eligResult"></h3>
+
+      </div>
+
+    </section>
+
+
+    <section id="marks" class="page">
+
+      <h2>📊 Academic Performance</h2>
+
+      <div class="card">
+
+        <form id="marksForm">
+
+          <input type="number" id="semester"
+            min="1" max="12"
+            placeholder="Semester Number" required>
+
+          <input type="number" id="sgpa"
+            min="0" max="10" step="0.01"
+            placeholder="Enter SGPA" required>
+
+          <button type="submit">Save Marks</button>
+
+        </form>
+
+      </div>
+
+      <div id="marksList"></div>
+
+    </section>
+
+    <section id="buddy" class="page">
+      <h2>🤖 AI Study Buddy</h2>
+      <div class="card">
+        <input id="buddyTopic" placeholder="Subject / topic (e.g. DBMS)">
+        <textarea id="buddyNotes" rows="6" placeholder="Paste notes, one per line:&#10;term: definition"></textarea>
+        <button id="makeCards">Flashcards</button>
+        <button id="makeSchedule">Revision Schedule</button>
+        <button id="startBuddyQuiz">Quiz Me</button>
+      </div>
+      <div id="buddyOut"></div>
+      <div class="card"><h3>Weak subjects</h3><p id="weakList">None yet</p></div>
+    </section>
+
+    <section id="placement" class="page">
+      <h2>💼 Placement Prep</h2>
+      <div class="card"><h3>Readiness score</h3><h1 id="placeScore">0%</h1>
+        <p>Based on CGPA, best aptitude score and mock interviews.</p></div>
+      <div class="card"><h3>Companies</h3><div id="companyList"></div></div>
+      <div class="card"><h3>Aptitude test</h3><div id="aptBox"><button id="startApt">Start</button></div></div>
+      <div class="card"><h3>Interview questions</h3><p id="iq">Tap below 👇</p><button id="nextIq">New question</button></div>
+      <div class="card"><h3>Mock interviews</h3>
+        <form id="mockForm">
+          <input id="mockCompany" placeholder="Company / type" required>
+          <input id="mockScore" type="number" min="1" max="10" placeholder="Self score (1-10)" required>
+          <button type="submit">Log</button>
+        </form>
+        <div id="mockList"></div></div>
+    </section>
+
+    <section id="planner" class="page">
+      <h2>📅 Planner</h2>
+      <div class="card"><h3>Assignments</h3>
+        <form id="asgForm">
+          <input id="asgName" placeholder="Assignment" required>
+          <input id="asgDate" type="date" required>
+          <button type="submit">Add</button>
+        </form>
+        <div id="asgList"></div></div>
+      <div class="card"><h3>⏱️ Pomodoro</h3><h1 id="pomoTime">25:00</h1>
+        <button id="pomoStart">Start</button><button id="pomoReset">Reset</button>
+        <p id="pomoCount"></p></div>
+    </section>
+
+    <section id="analytics" class="page">
+      <h2>📈 Analytics</h2>
+      <div class="card"><h3>SGPA by semester</h3><div id="chartSgpa"></div></div>
+      <div class="card"><h3>Quiz performance by topic (out of 10)</h3><div id="chartQuiz"></div></div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 CAMPUSLY | Learn. Grow. Succeed. 💜
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+<script src="modules.js"></script>
+<script src="placement.js"></script>
+</body>
+</html>
